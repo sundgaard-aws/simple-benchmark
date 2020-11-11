@@ -2,16 +2,17 @@
 import java.lang.Math;
 
 public class BenchmarkApp {
-public static void main(String args[]) {
-        long startTime = System.nanoTime();
-        System.out.println(String.format("Benchmark started at [%s]", startTime));
-        int loops = 100000;
-        for(int i=0;i<loops;i++) {
-                Math.random();
+        public static void main(String args[]) {
+                long startTime = System.nanoTime();
+                int loops = 10000000;
+                System.out.println(String.format("Benchmark started with %,d loops at [%,d]", loops, startTime));        
+                for(int i=0;i<loops;i++) {
+                        Math.random();
+                }
+                long endTime = System.nanoTime();
+                System.out.println(String.format("Benchmark ended at [%,d]", endTime));
+                System.out.println(String.format("Duration=[%,d] ns", endTime-startTime));
+                System.out.println(String.format("Duration=[%,d] mis", (endTime-startTime)/1000));
+                System.out.println(String.format("Duration=[%,d] ms", (endTime-startTime)/1000000));
         }
-        long endTime = System.nanoTime();
-        System.out.println(String.format("Benchmark ended at [%s]", endTime));
-        System.out.print(String.format("Duration=[%s] ns", endTime-startTime));
-
-}
 }
